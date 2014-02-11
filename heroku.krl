@@ -52,7 +52,7 @@ ruleset lab1 {
         }
         fired {
             ent:count += 1 from 0;
-            ent:name += 1 from 0;
+            ent:name += 1 from 1;
             last
         }
     }
