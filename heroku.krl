@@ -12,6 +12,6 @@ ruleset heroku {
   }
   rule firstRule {
     select when pageview ".*"
-    notify("Hello World", "This is a sample rule.") with sticky = true;
+    notify("Jared Yarn", "Hey Yo I can do a Notify") with sticky = true;
   }
 }
