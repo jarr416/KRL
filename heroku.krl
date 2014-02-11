@@ -9,8 +9,8 @@ ruleset lab1 {
     }
     rule first_rule {
         select when pageview ".*" {
-            notify("Hello World", "My name is bob") with sticky = true;
-            notify("Test1", "Hello");
+            notify("Hello World", "I can make a Notify") with sticky = true;
+            notify("Hello World", "I can make anotherone");
         }
     }
     
@@ -45,12 +45,12 @@ ruleset lab1 {
                 (string.extract(re/(?:name=)(\w*)/g)).join("")
             };
             name = getName(query);
-            x = app:name + 1
         }
         if ((not name eq "") && (x < 5)) then {
-            notify("test", "Hello " + name + "  visit#" + x);  
+            notify("test", "Hello " + name + " You have visited " + ent:count + " times") with sticky = true;  
         }
         fired {
+            ent:count += 1 from 0;
             last
         }
     }
