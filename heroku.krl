@@ -16,7 +16,7 @@ ruleset lab2 {
            append('#main', 'Last name: <input type="text" name="lastname">');
            append('#main', '<input type="submit" value="Submit" >');
            append('#main', '</form>');
-           watch("#form", "submit");
+           watch("#form", 'submit');
         }
     }
     
