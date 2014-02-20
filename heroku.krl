@@ -20,13 +20,12 @@ ruleset lab2 {
                 </form>
             >>;
         } 
-        {
-        // Display notification that will not fade.
+        
         if ent:firstname.isnull() then {
         	append('#main', form);
         	watch("#form", "submit");
         	}
-        }
+        
     }
     
     rule show_name {
@@ -35,6 +34,7 @@ ruleset lab2 {
         if not ent:firstname.isnull() then {
         	replace_inner("#main", "Hello " + ent:firstname + " " +  ent:lastname;
         	}
+        }
         }
         
     
