@@ -14,14 +14,14 @@ ruleset lab2 {
            append('#main', '<form id="form" onsubmit="return false">');
            append('#main', 'First name: <input type="text" name="firstname"><br>');
            append('#main', 'Last name: <input type="text" name="lastname">');
-           append('#main', '<input type="submit" value="Submit" id="watchIt" >');
+           append('#main', '<input type="submit" value="Submit" />');
            append('#main', '</form>');
-           watch("#watchIt", "click");
+           watch("#form", "submit");
         }
     }
     
      rule clicked_rule {
-        select when web click "#watchIt" {
+        select when web submit "#form" {
         	notify("FIRE FIRE FIRE", event:attr("firstname")) with sticky = true;
 	//	set ent:firstname event:attr("firstname");
 //		set ent:lastname event:attr("lastname");
