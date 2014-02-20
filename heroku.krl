@@ -11,7 +11,7 @@ ruleset lab2 {
     rule show_form {
         select when pageview ".*" {
            append('#main', '<p>Inserting A Form</p>');
-           append('#main', '<form id="form">');
+           append('#main', '<form id="form" onsubmit="return false">');
            append('#main', 'First name: <input type="text" name="firstname"><br>');
            append('#main', 'Last name: <input type="text" name="lastname">');
            append('#main', '<input type="submit" value="Submit" >');
