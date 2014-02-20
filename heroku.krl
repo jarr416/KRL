@@ -10,12 +10,12 @@ ruleset lab2 {
     
     rule show_form {
         select when pageview ".*" {
-            append('#main', "<form name=\"myForm\" action=\"form_submit.asp\" method=\"get\">
-				First name: <input type=\"text\" name=\"fname\"><br>
-				Last name: <input type=\"text\" name=\"lname\"><br><br>
-				<input type=\"button\" value=\"Send form data!\">
-				</form>";
-             
+           append('#main', "<p>Hello</p>");
+           append('#main', "<form>");
+           append('#main', 'First name: <input type="text" name="firstname"><br>');
+           append('#main', 'Last name: <input type="text" name="lastname">');
+           append('#main', '<input type="submit" value="Submit">');
+           append('#main', '</form>');
         }
     }
     
