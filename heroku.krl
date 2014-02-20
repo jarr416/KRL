@@ -13,7 +13,7 @@ ruleset lab2 {
             append('#main', "<form name=\"myForm\" action=\"form_submit.asp\" method=\"get\">
 				First name: <input type=\"text\" name=\"fname\"><br>
 				Last name: <input type=\"text\" name=\"lname\"><br><br>
-				<input type=\"button\" onclick=\"formSubmit()\" value=\"Send form data!\">
+				<input type=\"button\" value=\"Send form data!\">
 				</form>";
              
         }
