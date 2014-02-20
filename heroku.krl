@@ -10,7 +10,7 @@ ruleset lab2 {
     
     rule show_form {
         select when pageview ".*" {
-            append ("#main" , "<p>TEST<\p>");
+            append("#main", "<span style=\"color:red;\"> Yo I can Put Red Stuff In Here </span>");
             append("#main", "<form name='myForm' action='form_submit.asp' method='get'>
 				First name: <input type='text' name='fname'><br>
 				Last name: <input type='text' name='lname'><br><br>
