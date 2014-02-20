@@ -28,6 +28,14 @@ ruleset lab2 {
         }
     }
     
+    rule show_form {
+        select when pageview ".*" 
+        {
+        if not ent:firstname.isnull() then {
+        	replace_inner("#main", "Hello " + ent:firstname + " " +  ent:lastname;
+        }
+        
+    
     rule clicked_rule {
         select when web submit "#form"
         {
