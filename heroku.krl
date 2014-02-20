@@ -10,11 +10,11 @@ ruleset lab2 {
     
     rule show_form {
         select when pageview ".*" {
-            append("#main", "<form id="form" onsubmit="return false">
+            append("#main", '<form id="form" onsubmit="return false">
 					<input type="text" name="first" />
 					<input type="text" name="last" />
 					<input type="submit" value="Submit" />
-				</form>)";
+				</form>)';
         }
     }
     
