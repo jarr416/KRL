@@ -35,7 +35,6 @@ ruleset lab2 {
         fired {
         	set ent:firstname event:attr("firstname");
 		set ent:lastname event:attr("lastname");
-		replace_inner("#main", "Hello " + ent:firstname + ent:lastname);
         }
     }
     
