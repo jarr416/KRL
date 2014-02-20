@@ -9,27 +9,31 @@ ruleset lab2 {
     }
     
     rule show_form {
-        select when pageview ".*" {
-           append('#main', '<p>Inserting A Form</p>');
-           append('#main', '<form id="form" onsubmit="return false">');
-           append('#main', 'First name: <input type="text" name="firstname"><br>');
-           append('#main', 'Last name: <input type="text" name="lastname">');
-           append('#main', '<input type="submit" value="Submit" />');
-           append('#main', '</form>');
-           watch("#form", "submit");
+        select when pageview ".*"
+        pre {
+            form = <<
+                <p>A Wild Form Is Approaching</p>
+                <form id="form" onsubmit="return false">
+                First name: <input type="text" name="firstname"><br>
+                Last name: <input type="text" name="lastname">
+                <input type="submit" value="Submit">
+                </form>
+            >>;
+        } 
+        {
+        // Display notification that will not fade.
+        append('#main', form);
+        watch("#form", "submit");
         }
     }
-    
-     rule clicked_rule {
-        select when web submit "#form" {
-        	notify("FIRE FIRE FIRE", event:attr("firstname")) with sticky = true;
-	//	set ent:firstname event:attr("firstname");
-//		set ent:lastname event:attr("lastname");
-		//replace_inner("#main", "Hello " + ent:firstname + ent:lastname);
-	}
+    rule clicked_rule {
+        select when web submit "#form"
+        {
+        	set ent:firstname event:attr("firstname");
+		set ent:lastname event:attr("lastname");
+		replace_inner("#main", "Hello " + ent:firstname + ent:lastname);
+        }
     }
-    
-    
     
     
     //Just displaying Notifications
