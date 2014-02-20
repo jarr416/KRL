@@ -22,15 +22,17 @@ ruleset lab2 {
         } 
         {
         // Display notification that will not fade.
-        append('#main', form);
-        watch("#form", "submit");
+        if ent:firstname.isnull() then {
+        	append('#main', form);
+        	watch("#form", "submit");
         }
     }
+    
     rule clicked_rule {
         select when web submit "#form"
         {
         notify("ITS WORKING", "ITS WORKING") with sticky = true;
-        replace_inner("#main", "Hello " + event:attr("firstname") + event:attr("lastname"));
+        replace_inner("#main", "Hello " + event:attr("firstname") + " " +  event:attr("lastname"));
         }
         fired {
         	set ent:firstname event:attr("firstname");
