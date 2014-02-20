@@ -22,35 +22,12 @@ ruleset lab2 {
     
      rule clicked_rule {
         select when web click "#watchIt" {
-        	notify("FIRE FIRE FIRE", "FIRE FIRE FIRE") with sticky = true;
+        	notify("FIRE FIRE FIRE", event:attr("firstname")) with sticky = true;
 	//	set ent:firstname event:attr("firstname");
 //		set ent:lastname event:attr("lastname");
 		//replace_inner("#main", "Hello " + ent:firstname + ent:lastname);
 	}
     }
-    
-    rule watch_rule {
-        select when pageview ".*" 
-        pre {
-            watch_link = <<
-            <div>
-                <a id='watched' href="javascript:void(0)">
-                    Watched
-                </a>
-            </div>
-            >>;
-        }
-        {
-            append('#main', watch_link);
-            watch("#watched", "click");
-        }
-    }
-     
-    rule clicked_rule2 {
-        select when web click "#watched"
-        notify("You clicked", 'Watch');
-    }
-    
     
     
     
