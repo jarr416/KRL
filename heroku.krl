@@ -59,6 +59,8 @@ ruleset lab2 {
         fired {
           clear ent:firstname;
           clear ent:lastname;
+          set ent:firstname null;
+          set ent:lastname null;
         }
     }
     }
