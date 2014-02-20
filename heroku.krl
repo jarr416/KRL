@@ -16,12 +16,12 @@ ruleset lab2 {
            append('#main', 'Last name: <input type="text" name="lastname">');
            append('#main', '<input type="submit" value="Submit" >');
            append('#main', '</form>');
-           watch("#form", 'submit');
+           watch('#form', 'submit');
         }
     }
     
      rule clicked_rule {
-        select when web submit "#form" {
+        select when web submit '#form' {
         	notify("FIRE FIRE FIRE", "FIRE FIRE FIRE") with sticky = true;
 	//	set ent:firstname event:attr("firstname");
 //		set ent:lastname event:attr("lastname");
