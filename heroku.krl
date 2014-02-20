@@ -48,8 +48,7 @@ ruleset lab2 {
         }
     }
    
-    //Clears it
-    rule clear {
+    rule clear_Names {
         select when pageview '.*'
         pre {
           clearMe = page:url("query").match(re/clear=1/);
