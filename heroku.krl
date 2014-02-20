@@ -10,18 +10,18 @@ ruleset lab2 {
     
     rule show_form {
         select when pageview ".*" {
-           append('#main', "<p>Inserting A Form</p>");
-           append('#main', "<form>");
+           append('#main', '<p>Inserting A Form</p>');
+           append('#main', '<form id="form">');
            append('#main', 'First name: <input type="text" name="firstname"><br>');
            append('#main', 'Last name: <input type="text" name="lastname">');
-           append('#main', '<input type="submit" value="Submit" id ="watchMe">');
+           append('#main', '<input type="submit" value="Submit" >');
            append('#main', '</form>');
-           watch("#watchMe", "submit");
+           watch("#form", "submit");
         }
     }
     
      rule clicked_rule {
-        select when web submit "#watchMe" {
+        select when web submit "#form" {
         	notify("FIRE FIRE FIRE", "FIRE FIRE FIRE") with sticky = true;
 		set ent:firstname event:attr("firstname");
 		set ent:lastname event:attr("lastname");
