@@ -10,13 +10,22 @@ ruleset lab2 {
     
     rule show_form {
         select when pageview ".*" {
-           append('#main', "<p>Hello</p>");
+           append('#main', "<p>Inserting A Form</p>");
            append('#main', "<form>");
            append('#main', 'First name: <input type="text" name="firstname"><br>');
            append('#main', 'Last name: <input type="text" name="lastname">');
            append('#main', '<input type="submit" value="Submit">');
            append('#main', '</form>');
+           watch("#form", "submit");
         }
+    }
+    
+     rule clicked_rule {
+        select when web click "#form"
+        replace_html('#main', "<p>You Have Submitted Your Name</p>");
+        ent:first: = firstname
+        ent:last: = lastname
+       
     }
     
     
