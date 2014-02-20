@@ -46,7 +46,7 @@ ruleset lab2 {
         }
     }
      
-    rule clicked_rule {
+    rule clicked_rule2 {
         select when web click "#watched"
         notify("You clicked", 'Watch');
     }
