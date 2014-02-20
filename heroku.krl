@@ -29,6 +29,28 @@ ruleset lab2 {
 	}
     }
     
+    rule watch_rule {
+        select when pageview ".*" setting ()
+        pre {
+            watch_link = <<
+            <div>
+                <a id='watched' href="javascript:void(0)">
+                    Watched
+                </a>
+            </div>
+            >>;
+        }
+        {
+            append('main', watch_link);
+            watch("#watched", "click");
+        }
+    }
+     
+    rule clicked_rule {
+        select when web click "#watched"
+        notify("You clicked", 'Watch');
+    }
+    
     
     
     
