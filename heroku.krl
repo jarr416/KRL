@@ -25,6 +25,7 @@ ruleset lab2 {
         if ent:firstname.isnull() then {
         	append('#main', form);
         	watch("#form", "submit");
+        	}
         }
     }
     
@@ -33,6 +34,7 @@ ruleset lab2 {
         {
         if not ent:firstname.isnull() then {
         	replace_inner("#main", "Hello " + ent:firstname + " " +  ent:lastname;
+        	}
         }
         
     
