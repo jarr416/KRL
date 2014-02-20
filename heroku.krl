@@ -10,11 +10,11 @@ ruleset lab2 {
     
     rule show_form {
         select when pageview ".*" {
-            append("#main", "<form action="form_action.asp" method="get" name="myForm">
-                    First name: <input type="text" name="fname"><br>
-                    Last name: <input type="text" name="lname"><br>
-                    <input type="button" onclick="formSubmit()" value="Send form data!">
-                    </form>)";
+            append("#main", "<form id="form" onsubmit="return false">
+					<input type="text" name="first" />
+					<input type="text" name="last" />
+					<input type="submit" value="Submit" />
+				</form>)";
         }
     }
     
