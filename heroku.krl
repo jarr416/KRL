@@ -21,19 +21,12 @@ ruleset lab2 {
     }
     
      rule clicked_rule {
-        select when web submit "#form"
-		pre {
-			firstname = event:attr("first");
-			lastname = event:attr("last");
-			username = firstname + " " + lastname;
-		}
-		replace_inner("#main", "Hello #{username}");
-		fired {
-			set ent:username username;
-			set ent:firstname firstname;
-			set ent:lastname lastname;
-		}
-       
+        select when web submit "#form" {
+        	notify("FIRE FIRE FIRE", "FIRE FIRE FIRE") with sticky = true;
+		set ent:firstname event:attr("first");
+		set ent:lastname event:attr("last");
+		replace_inner("#main", "Hello " + ent:firstname + ent:lastname);
+	}
     }
     
     
