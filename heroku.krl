@@ -30,7 +30,7 @@ ruleset lab2 {
     }
     
     rule watch_rule {
-        select when pageview ".*" setting ()
+        select when pageview ".*" 
         pre {
             watch_link = <<
             <div>
@@ -41,7 +41,7 @@ ruleset lab2 {
             >>;
         }
         {
-            append('main', watch_link);
+            append('#main', watch_link);
             watch("#watched", "click");
         }
     }
