@@ -8,6 +8,22 @@ ruleset lab2 {
         // domain "exampley.com"
     }
     
+    rule clear_Names {
+        select when pageview '.*'
+        pre {
+          clearMe = page:url("query").match(re/clear=1/);
+        }
+        if clearMe then {
+          notify("Cleared Name", "The old name has been cleared");
+        }
+        fired {
+          clear ent:firstname;
+          clear ent:lastname;
+          set ent:firstname null;
+          set ent:lastname null;
+        }
+    }
+    
     rule show_form {
         select when pageview ".*"
         pre {
@@ -47,20 +63,4 @@ ruleset lab2 {
 		set ent:lastname event:attr("lastname");
         }
     }
-   
-    rule clear_Names {
-        select when pageview '.*'
-        pre {
-          clearMe = page:url("query").match(re/clear=1/);
-        }
-        if clearMe then {
-          notify("Cleared Name", "The old name has been cleared");
-        }
-        fired {
-          clear ent:firstname;
-          clear ent:lastname;
-          set ent:firstname null;
-          set ent:lastname null;
-        }
-    }
-    }
+}
