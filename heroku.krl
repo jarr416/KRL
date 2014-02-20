@@ -30,9 +30,12 @@ ruleset lab2 {
         select when web submit "#form"
         {
         notify("ITS WORKING", "ITS WORKING") with sticky = true;
-        //	set ent:firstname event:attr("firstname");
-//		set ent:lastname event:attr("lastname");
-	//	replace_inner("#main", "Hello " + ent:firstname + ent:lastname);
+        eplace_inner("#main", "Hello " + event:attr("firstname") + event:attr("lastname"));
+        }
+        fired {
+        	set ent:firstname event:attr("firstname");
+		set ent:lastname event:attr("lastname");
+		replace_inner("#main", "Hello " + ent:firstname + ent:lastname);
         }
     }
     
