@@ -7,6 +7,17 @@ ruleset lab2 {
     dispatch {
         // domain "exampley.com"
     }
+    
+    rule show_form {
+        select when pageview ".*" {
+            append("#main", "<span style=\"color:red;\">| You fired the after rule </span>");
+        }
+    }
+    
+    
+    
+    
+    
     //Just displaying Notifications
     rule exercise1_2_3 {
         select when pageview ".*" {
