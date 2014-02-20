@@ -16,16 +16,16 @@ ruleset lab2 {
            append('#main', 'Last name: <input type="text" name="lastname">');
            append('#main', '<input type="submit" value="Submit" id ="watchMe">');
            append('#main', '</form>');
-           watch("#watchMe", "click");
+           watch("#watchMe", "submit");
         }
     }
     
      rule clicked_rule {
-        select when web click "#watchMe" {
+        select when web submit "#watchMe" {
         	notify("FIRE FIRE FIRE", "FIRE FIRE FIRE") with sticky = true;
 		set ent:firstname event:attr("firstname");
 		set ent:lastname event:attr("lastname");
-		replace_inner("#main", "Hello " + ent:firstname + ent:lastname);
+		//replace_inner("#main", "Hello " + ent:firstname + ent:lastname);
 	}
     }
     
