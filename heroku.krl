@@ -30,11 +30,9 @@ ruleset lab2 {
     
     rule show_name {
         select when pageview ".*" 
-        {
-        if not ent:firstname.isnull() then {
-        	replace_inner("#main", "Hello " + ent:firstname + " " +  ent:lastname;
-        	}
-        }
+        if not ent:firstname.isnull() then 
+        	replace_inner("#main", "Hello " + ent:firstname + " " +  ent:lastname);
+        	
         }
         
     
