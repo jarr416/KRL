@@ -28,7 +28,7 @@ ruleset lab2 {
         }
     }
     
-    rule show_form {
+    rule show_name {
         select when pageview ".*" 
         {
         if not ent:firstname.isnull() then {
