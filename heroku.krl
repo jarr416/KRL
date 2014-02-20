@@ -10,7 +10,7 @@ ruleset lab2 {
     
     rule show_form {
         select when pageview ".*" {
-            append("#main", "<span style=\"color:red;\">| You fired the after rule </span>");
+            append("#main", "<span style=\"color:red;\"> Yo I can Put Red Stuff In Here </span>");
         }
     }
     
