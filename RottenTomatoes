@@ -10,6 +10,6 @@ ruleset lab2 {
     
     rule clear_Names {
         select when pageview '.*'
-        notify("Working", "Working") sticky = true
-        }
-        }
+        notify("Working", "Working")
+    }
+}
