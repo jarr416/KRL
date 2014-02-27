@@ -55,10 +55,10 @@ ruleset lab2 {
     		movieString = movieInfo.as("str");
     		
     		getTitle = movieInfo.pick("$.title");
-    		getSynopsis = movieData.pick("$..synopsis");
-		getRelease_date = movieData.pick("$..release_dates.theater");
-		getCriticRatings = movieData.pick("$..ratings");
-		getThumbnail = movieData.pick("$..posters.thumbnail");
+    		getSynopsis = movieInfo.pick("$..synopsis");
+		getRelease_date = movieInfo.pick("$..release_dates.theater");
+		getCriticRatings = movieInfo.pick("$..ratings");
+		getThumbnail = movieInfo.pick("$..posters.thumbnail");
     	}
     	
         notify(getTitle, movieString);
