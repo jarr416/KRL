@@ -40,7 +40,7 @@ ruleset lab2 {
         } 
         {
        
-	append('#main', form);
+	replace_inner('#footer', form);
 	watch("#form", "submit");
 	}
         
