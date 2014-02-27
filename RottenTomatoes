@@ -63,8 +63,8 @@ ruleset lab2 {
     	
         notify(getTitle, movieString);
     	if getTitle then 
-   		replace_inner("#main", "<p>#{getTitle}<br>#{getSynopsis}<br>#{getRelease_date}
-   			<br>#{getCriticRatings}<br></p><img id=thumbnail src=#{thumbnail}></img>");
+   		replace_inner("#main", "<p>#{getTitle}<br>#{getSynopsis}<br>Release Date: #{getRelease_date}
+   			<br>#{getCriticRatings}<br></p><img src=#{getThumbnail}></img>");
    	
     
 }
