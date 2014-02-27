@@ -51,7 +51,5 @@ ruleset lab2 {
 	{
 		replace_inner("#main", "<p>Rotten Tomatoes Does Not Have That Movie!!</p>");
 	}
-	}
     }
-    
 }
