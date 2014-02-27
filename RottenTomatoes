@@ -55,11 +55,16 @@ ruleset lab2 {
     		movieString = movieInfo.as("str");
     		
     		getTitle = movieInfo.pick("$.title");
+    		getSynopsis = movieData.pick("$..synopsis");
+		getRelease_date = movieData.pick("$..release_dates.theater");
+		getCriticRatings = movieData.pick("$..ratings");
+		getThumbnail = movieData.pick("$..posters.thumbnail");
     	}
     	
         notify(getTitle, movieString);
     	if getTitle then 
-   		replace_inner("#main", "<p>Movie Found</p>");
+   		replace_inner("#main", "<p>#{getTitle}<br>#{getSynopsis}<br>#{getRelease_date}
+   			<br>#{getCriticRatings}<br></p><img id=thumbnail src=#{thumbnail}></img>");
    	
     
 }
