@@ -57,10 +57,10 @@ ruleset lab2 {
     		getTitle = movieInfo.pick("$.title");
     	}
     	
-        notify(title, movieString);
-    //	if getTitle then {
-    //		replace_inner("#main", "<pMovie Found</p>");
-    //		}
+   //     notify(title, movieString);
+    	if getTitle then {
+    		replace_inner("#main", "<pMovie Found</p>");
+    	}
     
 }
 }
