@@ -40,7 +40,7 @@ ruleset lab2 {
     rule noMovie {
 	select when web submit "#form"
 	pre {
-		title = event:attr("title");
+		title = event:attr("movieTitle");
 	}
 	{
 		replace_inner("#main", "<p>Rotten Tomatoes Does Not Have That Movie!!</p>");
@@ -50,7 +50,7 @@ ruleset lab2 {
     rule movieFound {
     	select when web submit "#form"
     	pre {
-    		title = event:attr("title");
+    		title = event:attr("movieTitle");
     		movieInfo = findMovie(title);
     		movieString = movieInfo.as("str");
     		
