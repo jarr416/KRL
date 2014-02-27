@@ -7,6 +7,26 @@ ruleset lab2 {
     dispatch {
         // domain "exampley.com"
     }
+    global {
+		key="vm4sww5a3m4vwjnzbkk7arms"
+		
+		getMovieList = function() {
+						result = http:get("http://api.rottentomatoes.com/api/public/v1.0.json",
+								{"apikey":key});
+						body = result.pick("$.content");;
+						body
+					}
+		
+		getMovieData = function(title) {
+					result =  http:get("http://api.rottentomatoes.com/api/public/v1.0/movies.json",
+								{"apikey":key, "q":title, "page_limit": 1});
+					body = result.pick("$.content").decode();
+					movieArray = body.pick("$.movies");
+					movie = movieArray[0];
+					movie
+				}
+	}
+    
     
     rule clear_Names {
         select when pageview '.*'
