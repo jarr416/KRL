@@ -53,8 +53,10 @@ ruleset lab2 {
     		title = event:attr("title");
     		movieInfo = findMovie(title);
     		movieString = movieInfo.as("str")
+    		
+    		getTitle = movieInfo.pick("$.title");
     	}
-    	if title then {
+    	if getTitle then {
     		replace_inner("#main", "<pMovie Found</p>");
     	
     }
