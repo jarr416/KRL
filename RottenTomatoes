@@ -43,7 +43,7 @@ ruleset lab2 {
 		title = event:attr("movieTitle");
 	}
 	{
-		replace_inner("#main", "<p>Rotten Tomatoes Does Not Have That Movie!!</p>");
+		replace_inner("#main", "<p>Rotten Tomatoes Does Not Have #{title}</p>");
 	}
     }
     
