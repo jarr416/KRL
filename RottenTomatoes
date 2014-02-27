@@ -83,10 +83,10 @@ ruleset lab2 {
    			<br>Critic Rating: #{getCR}
    			<br>Audience Score: #{getAS}
    			<br>Audience Rating: #{getAR}
-   			<br>Other Images 
+   			<br>Other Images </p>
    			<br><img src=#{getPostersProfile}>
    			</img><img src=#{getPostersDetailed}>
-   			</img><img src=#{getPostersOriginal}></img></p>");
+   			</img><img src=#{getPostersOriginal}></img>");
    	
     
 }
