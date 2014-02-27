@@ -10,12 +10,6 @@ ruleset lab2 {
     global {
 		key="vm4sww5a3m4vwjnzbkk7arms"
 		
-		getAllMovies = function() {
-			result = http:get("http://api.rottentomatoes.com/api/public/v1.0.json",	{"apikey":key});
-			body = result.pick("$.content");;
-			body
-		}
-		
 		findMovie = function(title) {
 			result =  http:get("http://api.rottentomatoes.com/api/public/v1.0/movies.json",
 								{"apikey":key, "q":title, "page_limit": 1});
@@ -61,7 +55,9 @@ ruleset lab2 {
     		movieString = movieInfo.as("str")
     	}
     	{
+    	if movieString then {
     		replace_inner("#main", movieString);
+    		}
     	}
     }
     		
