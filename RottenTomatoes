@@ -75,7 +75,7 @@ ruleset lab2 {
     	
     	if getTitle then 
    		replace_inner("#main", "<img src=#{getThumbnail}></img><p>
-   		//	<p>#{movieString}
+   			<p>#{movieString}
    			<br>#{getTitle}
    			<br>Synopsis: #{getSynopsis}
    			<br>Release Date: #{getRelease_date}
