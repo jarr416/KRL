@@ -26,12 +26,7 @@ ruleset lab2 {
 					movie
 				}
 	}
-    
-    
-    rule clear_Names {
-        select when pageview '.*'
-        notify("Working", "Working")
-    }
+   
     rule show_form {
         select when pageview ".*"
         pre {
