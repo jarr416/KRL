@@ -55,7 +55,7 @@ ruleset lab2 {
     		movieString = movieInfo.as("str")
     	}
     	{
-    	if movieString then {
+    	if movieString not null then {
     		replace_inner("#main", movieString);
     		}
     	}
