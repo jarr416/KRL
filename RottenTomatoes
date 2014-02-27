@@ -52,7 +52,7 @@ ruleset lab2 {
     	pre {
     		title = event:attr("title");
     		movieInfo = findMovie(title);
-    		movieString = movieInfo.as("str")
+    		movieString = movieInfo.as("str");
     		
     		getTitle = movieInfo.pick("$.title");
     	}
