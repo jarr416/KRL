@@ -50,20 +50,43 @@ ruleset lab2 {
     rule movieFound {
     	select when web submit "#form"
     	pre {
+    	
+    //	Movie thumbnail, Title, Release Year, Synopsis, Critic ratings,and other data you find interesting. 
+    
     		title = event:attr("movieTitle");
     		movieInfo = findMovie(title);
-    		movieString = movieInfo.as("str");
+    	//	movieString = movieInfo.as("str");
     		
     		getTitle = movieInfo.pick("$.title");
     		getSynopsis = movieInfo.pick("$..synopsis");
 		getRelease_date = movieInfo.pick("$..release_dates.theater");
-		getCriticRatings = movieInfo.pick("$..ratings");
 		getThumbnail = movieInfo.pick("$..posters.thumbnail");
+		
+		getCriticRatings = movieInfo.pick("$..ratings");
+		getCR = getCriticRatings.pick("$.critics_rating").as("str");
+		getAR = getCriticRatings.pick("$.audience_rating").as("str");
+		getCS = getCriticRatings.pick("$.critics_score").as("str");
+		getAS = getCriticRatings.pick("$.audience_score").as("str");
+		
+		getPostersProfile = movieInfo.pick("%..posters.profile");
+		getPostersDetailed = movieInfo.pick("%..posters.detailed");
+		getPostersOriginal = movieInfo.pick("%..posters.original");
     	}
     	
     	if getTitle then 
-   		replace_inner("#main", "<p>#{movieString}<br>#{getTitle}<br>#{getSynopsis}<br>Release Date: #{getRelease_date}
-   			<br>#{getCriticRatings}<br></p><img src=#{getThumbnail}></img>");
+   		replace_inner("#main", "<img src=#{getThumbnail}></img><p>
+   		//	<p>#{movieString}
+   			<br>#{getTitle}
+   			<br>Synopsis: #{getSynopsis}
+   			<br>Release Date: #{getRelease_date}
+   			<br>Critic Score: #{getCS}
+   			<br>Critic Rating: #{getCR}
+   			<br>Audience Score: #{getAS}
+   			<br>Audience Rating: #{getAR}
+   			<br>Other Images 
+   			<br><img src=#{getPostersProfile}>
+   			</img><img src=#{getPostersDetailed}>
+   			</img><img src=#{getPostersOriginal}></img></p>");
    	
     
 }
