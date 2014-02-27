@@ -44,83 +44,14 @@ ruleset lab2 {
 	}
     }
     rule noMovie {
-		select when web submit "#form"
-		pre {
-			title = event:attr("title");
-		}
-		{
-			replace_inner("#main", "<p>Rotten Tomatoes Does Not Have "#{title}"</p>");
-		}
+	select when web submit "#form"
+	pre {
+		title = event:attr("title");
 	}
-    
-    
-    rule clicked_rule {
-        pre {
-		movie = findMovie(event:attr("title"));
-		movieString = movieData.as("str");
-		
-		title = movieString.pick("$.title");
-		synopsis = movieString.pick("$..synopsis");
-		release_date = movieString.pick("$..release_dates.theater");
-		criticRatings = movieString.pick("$..ratings");
-		thumbnail = movieString.pick("$..posters.thumbnail");
-		
-		critic_rating = criticRatings.pick("$.critics_rating").as("str");
-		audience_rating = criticRatings.pick("$.audience_rating").as("str");
-		critic_score = criticRatings.pick("$.critics_score").as("str");
-		audience_score = criticRatings.pick("$.audience_score").as("str");
-		
-		critics_consensus = movieString.pick("$..critics_consensus");
-		movieRating = movieString.pick("$..mpaa_rating");
-		runtime = movieString.pick("$..runtime");
-		
-		displayHTML = <<
-				<p>Movie Data:</p>
-				<h2 id=movie_title></h2>
-				<p id=release_date></p>
-				<p id=runtime">Runtime: #{runtime} minutes</p>
-				<img id=thumbnail src=#{thumbnail}></img>
-				<p id=synopsis></p>
-		
-				<table>
-				<tr>
-					<td width=25px></td>
-					<td width=75px align="center">Critics</td> 
-					<td width=75px align="center">Audience</td>
-				</tr>
-				<tr>
-					<td>Rating</td>
-					<td id=critic_rating align="center">#{critic_rating}</td> 
-					<td id=audience_rating align="center">#{audience_rating}</td>
-				</tr>
-				<tr>
-					<td>Score</td>
-					<td id=critic_score align="center">#{critic_score}</td> 
-					<td id=audience_score align="center">#{audience_score}</td>
-				</tr>
-				</table>
-		
-				<br>
-				<p id=concensus></p>
-		
-				<p id=mpaaRating></p>
-				>>;
-		}
-		if title then {
-//			replace_inner("#main", "Movie Data: #{movieDataString} <br>Movie Title: #{title}<br>Synopsis: #{synopsis}");
-			replace_inner("#main", "#{displayHTML}");
-
-			replace_inner("#main", "#{title}");
-			replace_inner("#main", "Released: #{release_date}");
-			replace_inner("#main", "Synopsis: #{synopsis}");
-
-			replace_inner("#main", "Critics Consensus: #{critics_consensus}");
-			replace_inner("#main", "Rated: #{movieRating}");
-		}
-        fired {
-        	set ent:movie event:attr("movieTitle");
-		
-        }
+	{
+		replace_inner("#main", "<p>Rotten Tomatoes Does Not Have That Movie!!</p>");
+	}
+	}
     }
     
 }
