@@ -52,4 +52,18 @@ ruleset lab2 {
 		replace_inner("#main", "<p>Rotten Tomatoes Does Not Have That Movie!!</p>");
 	}
     }
+    
+    rule movieFound{
+    	select when web submit "#form"
+    	pre {
+    		title = event:attr("title");
+    		movieInfo = findMovie(title);
+    		movieString = movieInfo.as("str")
+    	}
+    	{
+    		replace_inner("#main", movieString);
+    	}
+    }
+    		
+    		
 }
