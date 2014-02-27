@@ -32,4 +32,34 @@ ruleset lab2 {
         select when pageview '.*'
         notify("Working", "Working")
     }
+    rule show_form {
+        select when pageview ".*"
+        pre {
+            form = <<
+                <p>A Wild Form Is Approaching</p>
+                <form id="form" onsubmit="return false">
+                Movie Title: <input type="text" name="movieTitle"><br>
+                <input type="submit" value="Submit">
+                </form>
+            >>;
+        } 
+        
+        if ent:firstname.isnull() then {
+        	append('#main', form);
+        	watch("#form", "submit");
+        	}
+        
+    }
+    rule clicked_rule {
+        select when web submit "#form"
+        {
+        notify("ITS WORKING", "ITS WORKING") with sticky = true;
+        replace_inner("#main", "You have Entered " + event:attr("movieTitle"));
+        }
+        fired {
+        	set ent:movie event:attr("movieTitle");
+		
+        }
+    }
+    
 }
