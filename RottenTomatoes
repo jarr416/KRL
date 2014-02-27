@@ -43,11 +43,11 @@ ruleset lab2 {
                 </form>
             >>;
         } 
-        
-        if ent:firstname.isnull() then {
-        	append('#main', form);
-        	watch("#form", "submit");
-        	}
+        {
+       
+	append('#main', form);
+	watch("#form", "submit");
+	}
         
     }
     rule clicked_rule {
