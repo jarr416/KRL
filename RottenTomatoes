@@ -61,9 +61,8 @@ ruleset lab2 {
 		getThumbnail = movieInfo.pick("$..posters.thumbnail");
     	}
     	
-        notify(getTitle, movieString);
     	if getTitle then 
-   		replace_inner("#main", "<p>#{getTitle}<br>#{getSynopsis}<br>Release Date: #{getRelease_date}
+   		replace_inner("#main", "<p>#{movieString}<br>#{getTitle}<br>#{getSynopsis}<br>Release Date: #{getRelease_date}
    			<br>#{getCriticRatings}<br></p><img src=#{getThumbnail}></img>");
    	
     
