@@ -58,8 +58,8 @@ ruleset lab2 {
     	}
     	
         notify(getTitle, movieString);
-    //	if getTitle then 
-   //		replace_inner("#main", "<pMovie Found</p>");
+    	if getTitle then 
+   		replace_inner("#main", "<p>Movie Found</p>");
    	
     
 }
