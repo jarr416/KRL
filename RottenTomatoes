@@ -47,19 +47,19 @@ ruleset lab2 {
 	}
     }
     
-    rule movieFound{
+    rule movieFound {
     	select when web submit "#form"
     	pre {
     		title = event:attr("title");
     		movieInfo = findMovie(title);
     		movieString = movieInfo.as("str")
     	}
-    	{
-    	if movieString not null then {
+    	if title then {
     		replace_inner("#main", movieString);
-    		}
-    	}
+    	
     }
-    		
-    		
 }
+}
+    		
+    		
+
