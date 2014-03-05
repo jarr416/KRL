@@ -14,19 +14,7 @@ ruleset FourSquareCheckin {
   rule home is active {
 		select when web cloudAppSelected
 		pre {
-			my_html = <<
-				<div id="main">Checkin Info:</div>
-			>>;
-
-			my_form = <<
-				<form id="form" onsubmit="return false">
-					<input type="submit" value="Foursquare" />
-				</form>
-				>>;
-
-			data_html = <<
-					<div id="checkinInfo"/>
-				>>;
+			 my_html = << <h5>Hello, World!</h5> >>;
 		}
 		{
 			SquareTag:inject_styling();
