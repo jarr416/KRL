@@ -1,7 +1,7 @@
-ruleset HelloWorldApp {
+ruleset FourSquareCheckin {
   meta {  
 
-    name "Hello World"
+    name "FourSquare CheckIn"
     description <<
       Hello World
     >>
@@ -10,9 +10,7 @@ ruleset HelloWorldApp {
 	use module a169x701 alias CloudRain
 	use module a41x196  alias SquareTag
   }
-  global {
-   
-  }
+	
   rule HelloWorld {
     select when web cloudAppSelected
 	pre {
