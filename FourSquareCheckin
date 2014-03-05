@@ -10,17 +10,33 @@ ruleset FourSquareCheckin {
 	use module a169x701 alias CloudRain
 	use module a41x196  alias SquareTag
   }
-	
-  rule HelloWorld {
-    select when web cloudAppSelected
-	pre {
-    my_html = <<
-      <h5>Hello, World!</h5>
-    >>;
-  }
-  {
-  SquareTag:inject_styling();
-  CloudRain:createLoadPanel("Hello World!", {}, my_html);
-  }
+  
+  rule home is active {
+		select when web cloudAppSelected
+		pre {
+			my_html = <<
+				<div id="main">Checkin Info:</div>
+			>>;
+
+			my_form = <<
+				<form id="form" onsubmit="return false">
+					<input type="submit" value="Foursquare" />
+				</form>
+				>>;
+
+			data_html = <<
+					<div id="checkinInfo"/>
+				>>;
+		}
+		{
+			SquareTag:inject_styling();
+			CloudRain:createLoadPanel("Foursquare", {}, my_html);
+
+			replace_html('#main', my_html);
+			append('#main', data_html);
+			append('#main', my_form);
+			watch('#form', "submit");
+		}
+	}
   }
 }
