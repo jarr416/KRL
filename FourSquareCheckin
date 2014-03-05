@@ -12,18 +12,20 @@ ruleset FourSquareCheckin {
   }
   
   rule home is active {
-		select when web cloudAppSelected
-		pre {
-			 form = << <p>A Wild Form Is Approaching</p>
-                		<form id="form" onsubmit="return false">
-                		<input type="submit" value="Submit">
-                		</form> >>;
-		}
-		{
-			SquareTag:inject_styling();
-			CloudRain:createLoadPanel("Foursquare", {}, form);
-			
-		}
+	select when web cloudAppSelected
+	pre {
+		 form = << <p>A Wild Form Is Approaching</p>
+                	<form id="form" onsubmit="return false">
+                	<input type="submit" value="Submit">
+                	</form> >>;
 	}
-  }
+	{
+		SquareTag:inject_styling();
+		CloudRain:createLoadPanel("Foursquare", {}, form);
+		watch('#form', "submit");
+			
+	}
+    }
+    
+ }
 
