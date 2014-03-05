@@ -19,11 +19,7 @@ ruleset FourSquareCheckin {
 		{
 			SquareTag:inject_styling();
 			CloudRain:createLoadPanel("Foursquare", {}, my_html);
-
-			replace_html('#main', my_html);
-			append('#main', data_html);
-			append('#main', my_form);
-			watch('#form', "submit");
+			
 		}
 	}
   }
