@@ -24,7 +24,7 @@ ruleset FourSquareCheckin {
 	}
     }
     
-    rule pushRecieved {
+   rule process_fs_checkin{
     	select when foursquare checkin
     	pre {
 		 form = << <p>I got a Push</p> >>;
