@@ -23,11 +23,11 @@ ruleset FourSquareCheckin {
     }
     
     fired{
-      set ent:venue venue;
-      set ent:city city;
-			set ent:shout shout;
-			set ent:createdAt createdAt;
-			set ent:data event:attr("checkin").as("str");
+      	set ent:venue venue;
+      	set ent:city city;
+	set ent:shout shout;
+	set ent:createdAt createdAt;
+	set ent:data event:attr("checkin").as("str");
     }
   }
     
@@ -39,11 +39,11 @@ ruleset FourSquareCheckin {
 		  shout = ent:shout.as("str");
 		  createdAt = ent:createdAt.as("str");
 		  my_html = <<
-			  <h2>Checkin Data:</h2>
-			  <b>Venue: </b> #{venue}<br/>
-			  <b>City: </b> #{city}<br/>
-			  <b>Shout: </b> #{shout}<br/>
-			  <b>Created: </b> #{createdAt}<br/>
+			  <h1>The Last Check In Was:</h1>
+			  <b>Where I Be At: </b> #{venue}<br/>
+			  <b>In What Town: </b> #{city}<br/>
+			  <b>Yelling: </b> #{shout}<br/>
+			  <b>On: </b> #{createdAt}<br/>
 			  <br/><br/>
 			  >>;
 	  }
