@@ -12,7 +12,7 @@ ruleset FourSquareCheckin {
   }
     
    rule process_fs_checkin{
-    select when foursquare checkin
+    select when Foursquare Checkins
     
     pre{
       checkin = event:attr("checkin").decode();
