@@ -3,7 +3,7 @@ ruleset FourSquareCheckin {
 
     name "FourSquare CheckIn"
     description <<
-      Hello World
+      Checkin In With Foursquare
     >>
     author ""
     logging off
@@ -15,39 +15,40 @@ ruleset FourSquareCheckin {
     select when foursquare checkin
     
     pre{
-      checkin = event:attr("checkin").decode();
-		  venue = checkin.pick("$..venue");
-		  city = checkin.pick("$..city");
-		  shout = checkin.pick("$..shout");
-		  createdAt = checkin.pick("$..createdAt");
+    	data = event:attr("checkin").decode();
+	venue = data.pick("$..venue");
+	city = data.pick("$..city");
+	shout = data.pick("$..shout");
+	date = data.pick("$..createdAt");
     }
     
     fired{
-      set ent:venue venue;
-      set ent:city city;
-			set ent:shout shout;
-			set ent:createdAt createdAt;
-			set ent:data event:attr("checkin").as("str");
+	set ent:venue venue;
+	set ent:city city;
+ 	set ent:shout shout;
+        set ent:createdAt createdAt;
+	set ent:data event:attr("checkin").as("str");
     }
   }
   
 rule display_checkin{
     select when cloudAppSelected
 	  pre {
-		  venue = ent:venue.pick("$.name").as("str");
-		  city = ent:city.as("str");
-		  shout = ent:shout.as("str");
-		  createdAt = ent:createdAt.as("str");
-		  my_html = <<
-			  <h2>Checkin Data:</h2>
-			  <b>Venue: </b> #{venue}<br/>
-			  <b>City: </b> #{city}<br/>
-			  <b>Shout: </b> #{shout}<br/>
-			  <b>Created: </b> #{createdAt}<br/>
+		  v = ent:venue.pick("$.name").as("str");
+		  c = ent:city.as("str");
+		  s = ent:shout.as("str");
+		  ca = ent:createdAt.as("str");
+		  html = <<
+			  <h1>Checkin Data:</h1>
+			  <b>I Was At: </b> #{v}<br/>
+			  <b>In: </b> #{c}<br/>
+			  <b>Yelling: </b> #{s}<br/>
+			  <b>On: </b> #{ca}<br/>
+			  <b> AND NOW IM GONE </b>
 			  <br/><br/>
 			  >>;
 	  }
-	  CloudRain:createLoadPanel("Foursquare", {}, my_html);
+	  CloudRain:createLoadPanel("Foursquare", {}, html);
   
   }
 }
