@@ -27,5 +27,19 @@ ruleset FourSquareCheckin {
 	}
     }
     
+    rule pushRecieved {
+    	select when foursquare checkin
+    	pre {
+		 form = << <p>I got a Push</p> >>;
+	}
+	{
+		SquareTag:inject_styling();
+		CloudRain:createLoadPanel("Foursquare", {}, form);
+		watch('#form', "submit");
+			
+	}
+    
+    }
+    
  }
 
