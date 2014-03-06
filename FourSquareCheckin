@@ -43,6 +43,7 @@ ruleset FourSquareCheckin {
 			  >>;
 	  }
 	  CloudRain:createLoadPanel("Foursquare", {}, my_html);
+	  }
     
  }
 
