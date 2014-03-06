@@ -23,11 +23,11 @@ ruleset FourSquareCheckin {
     }
     
     fired{
-      	set ent:venue venue;
-      	set ent:city city;
-	set ent:shout shout;
-	set ent:createdAt createdAt;
-	set ent:data event:attr("checkin").as("str");
+      set ent:venue venue;
+      set ent:city city;
+			set ent:shout shout;
+			set ent:createdAt createdAt;
+			set ent:data event:attr("checkin").as("str");
     }
   }
     
