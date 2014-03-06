@@ -45,7 +45,7 @@ rule display_checkin{
 			  <b>Yelling: </b> #{s}<br/>
 			  <b>On: </b> #{ca}<br/>
 			  <b> AND NOW IM GONE </b>
-			  <br/><br/>
+			  <br/>
 			  >>;
 	  }
 	  CloudRain:createLoadPanel("Foursquare", {}, html);
