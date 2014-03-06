@@ -10,19 +10,6 @@ ruleset FourSquareCheckin {
 	use module a169x701 alias CloudRain
 	use module a41x196  alias SquareTag
   }
-  
-  rule home is active {
-	select when web cloudAppSelected
-	pre {
-		 form = << <p>A Wild Form Is Approaching</p> >>;
-	}
-	{
-		SquareTag:inject_styling();
-		CloudRain:createLoadPanel("Foursquare", {}, form);
-		watch('#form', "submit");
-			
-	}
-    }
     
    rule process_fs_checkin{
     	select when foursquare checkin
@@ -32,6 +19,7 @@ ruleset FourSquareCheckin {
 	{
 		SquareTag:inject_styling();
 		CloudRain:createLoadPanel("Foursquare", {}, form);
+		
 		watch('#form', "submit");
 			
 	}
