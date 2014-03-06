@@ -10,16 +10,7 @@ ruleset FourSquareCheckin {
 	use module a169x701 alias CloudRain
 	use module a41x186  alias SquareTag
   }
-  dispatch{
-  }
-  global{
-    eci = "46EEE204-A4CD-11E3-BBE2-FD9FE71C24E1";
-    ruleId = "b505161x5";
-    eid = "1234567890";
-    
-    url = "https://cs.kobj.net/sky/event/" + eci + "/" + eid + "/foursquare/checkin?rids=" + ruleId;
-  }
-    
+  
    rule process_fs_checkin{
     select when foursquare checkin
     
