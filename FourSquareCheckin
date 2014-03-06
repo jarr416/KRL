@@ -12,19 +12,24 @@ ruleset FourSquareCheckin {
   }
     
    rule process_fs_checkin{
-    	select when foursquare checkin
-    	pre {
-		 form = << <p>I got a Push</p> >>;
-	}
-	{
-		SquareTag:inject_styling();
-		CloudRain:createLoadPanel("Foursquare", {}, form);
-		
-		watch('#form', "submit");
-			
-	}
+    select when foursquare checkin
     
+    pre{
+      checkin = event:attr("checkin").decode();
+		  venue = checkin.pick("$..venue");
+		  city = checkin.pick("$..city");
+		  shout = checkin.pick("$..shout");
+		  createdAt = checkin.pick("$..createdAt");
     }
+    
+    fired{
+      set ent:venue venue;
+      set ent:city city;
+			set ent:shout shout;
+			set ent:createdAt createdAt;
+			set ent:data event:attr("checkin").as("str");
+    }
+  }
     
     rule display_checkin{
     	select when cloudAppSelected
