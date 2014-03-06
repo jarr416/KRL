@@ -26,5 +26,23 @@ ruleset FourSquareCheckin {
     
     }
     
+    rule display_checkin{
+    	select when cloudAppSelected
+	  pre {
+		  venue = ent:venue.pick("$.name").as("str");
+		  city = ent:city.as("str");
+		  shout = ent:shout.as("str");
+		  createdAt = ent:createdAt.as("str");
+		  my_html = <<
+			  <h2>Checkin Data:</h2>
+			  <b>Venue: </b> #{venue}<br/>
+			  <b>City: </b> #{city}<br/>
+			  <b>Shout: </b> #{shout}<br/>
+			  <b>Created: </b> #{createdAt}<br/>
+			  <br/><br/>
+			  >>;
+	  }
+	  CloudRain:createLoadPanel("Foursquare", {}, my_html);
+    
  }
 
