@@ -21,3 +21,4 @@ ruleset ShowLocation {
 	  	notify("Hello World", "I can make a Notify") with sticky = true;
 		
 	}
+	}
