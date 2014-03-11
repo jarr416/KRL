@@ -1,1 +1,23 @@
-sdfgh
+ruleset ShowLocation {
+  meta {  
+
+    name "Show Location"
+    description <<
+      Checkin In With Foursquare
+    >>
+    author ""
+    logging off
+	use module a169x701 alias CloudRain
+	use module a41x186  alias SquareTag
+
+  }
+  
+  dispatch {
+	}
+
+
+  rule show_fs_location is active {
+		select when pageview ".*"
+	  	notify("Hello World", "I can make a Notify") with sticky = true;
+		
+	}
