@@ -1,6 +1,6 @@
 ruleset ShowLocation {
   meta {  
-
+//b505289x5.prod
     name "Show Location"
     description <<
       Checkin In With Foursquare
