@@ -28,10 +28,9 @@ ruleset LocationData {
 		//	app:locationData.pick("$.." + key)
 		}
 		
-		getConstant = function() {
-			"IM GETTING IT"
+		getConstant = "IM GETTING IT"
 		//	app:locationData.pick("$.." + key)
-		}
+		
 	}
 	
 
