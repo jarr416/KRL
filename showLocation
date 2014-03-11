@@ -22,10 +22,12 @@ ruleset ShowLocation {
   rule show_fs_location is active {
 		select when pageview ".*" 
 		pre {
-			checkin = location_data:get_location_data("fs_checkin")
-			}
+			checkin = location_data:get_location_data("test")
+		}
+		{
 	  	notify(checkin.as("str") , "I can make a Notify") with sticky = true;
+	  	notify("doing Something I Hope" , "I can make a Notify") with sticky = true;
 	  	
-		
 		}
 	}
+}
