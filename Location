@@ -1,6 +1,6 @@
 ruleset LocationData {
   meta {  
-
+//b505289x4.prod
     name "Locatino Data"
     description <<
       Checkin In With Foursquare
