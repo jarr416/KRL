@@ -20,6 +20,9 @@ ruleset LocationData {
 	}
 
 	global {
+		set app:locationData map.put("test","ITS WORKING");
+		set ent:locationData map.put("test","ITS WORKING");
+		
 		get_location_data = function(key) {
 			"IM GETTING IT"
 		//	app:locationData.pick("$.." + key)
@@ -47,4 +50,4 @@ ruleset LocationData {
 		}
 	}
 
-
+}
