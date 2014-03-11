@@ -37,6 +37,7 @@ ruleset LocationData {
 		}
 		always {
 			set app:locationData map.put([k],v);
+			set ent:locationData map.put([k],v);
 		}
 	}
 
