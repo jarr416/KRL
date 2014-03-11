@@ -21,7 +21,8 @@ ruleset LocationData {
 
 	global {
 		get_location_data = function(key) {
-			app:locationData.pick("$.." + key)
+			"IM GETTING IT"
+		//	app:locationData.pick("$.." + key)
 		}
 	}
 	
