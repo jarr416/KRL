@@ -9,6 +9,8 @@ ruleset ShowLocation {
     logging off
 	use module a169x701 alias CloudRain
 	use module a41x186  alias SquareTag
+	
+	use module b505289x4 alias LocationData
 
   }
   
@@ -17,7 +19,8 @@ ruleset ShowLocation {
 
 
   rule show_fs_location is active {
-		select when pageview ".*"
+		select when pageview ".*" {
+		checkin = location_data:get_location_data("fs_checkin")
 	  	notify("Hello World", "I can make a Notify") with sticky = true;
 		
 	}
