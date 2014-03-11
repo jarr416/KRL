@@ -1,6 +1,6 @@
 ruleset FourSquareCheckin {
   meta {  
-
+//b505289x3.prod
     name "FourSquare CheckIn"
     description <<
       Checkin In With Foursquare
