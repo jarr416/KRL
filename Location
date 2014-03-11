@@ -11,7 +11,6 @@ ruleset LocationData {
 	use module a41x186  alias SquareTag
 	
 	use module b505289x3 alias FourSquareCheckin
-	use module b505289x4 alias LocationData
 	use module b505289x5 alias ShowLocation
 	
 	provides get_location_data
