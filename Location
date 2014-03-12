@@ -20,8 +20,6 @@ ruleset LocationData {
 	}
 
 	global {
-		set app:locationData map.put("test","ITS WORKING");
-		set ent:locationData map.put("test","ITS WORKING");
 		
 		get_location_data = function(key) {
 			"IM GETTING IT"
@@ -34,11 +32,11 @@ ruleset LocationData {
 	}
 	
 	rule imWorking is active {
-	select when pageview ".*" 
+	select when pageview ".*" {
 		
 	  	notify("Location Is Working" , "I can make a Notify") with sticky = true;
-
 		}
+	}
 	
 
 	rule add_location_item is active {
