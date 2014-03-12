@@ -22,7 +22,9 @@ ruleset FourSquareCheckin {
 	shout = data.pick("$..shout");
 	date = data.pick("$..createdAt");
     }
-    
+    {
+    send_directive(venue.pick("$.name")) with checkin = venue.pick("$.name");
+    }
     fired{
 	set ent:venue venue;
 	set ent:city city;
