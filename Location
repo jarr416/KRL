@@ -11,7 +11,7 @@ ruleset LocationData {
 	use module a41x186  alias SquareTag
 	
 	
-	provides get_location_data, getConstant
+	provides getLocation, getConstant
   }
   
    dispatch {
@@ -19,7 +19,7 @@ ruleset LocationData {
 
 	global {
 		
-		get_location_data = function(key) {
+		getLocation = function(key) {
 			"IM GETTING IT"
 		//	app:locationData.pick("$.." + key)
 		}
