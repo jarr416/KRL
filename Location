@@ -30,16 +30,16 @@ ruleset LocationData {
 	
 	rule imWorking is active {
 	select when pageview ".*" 
-		pre {
-			map = {};
-			}
+	//	pre {
+	//		map = {};
+	//		}
 		{
-	  	notify("Location Is Working" , "I can make a Notify") with sticky = true;
+	  	notify(app:locationData.as("str") , "I can make a Notify") with sticky = true;
 		}
-		always {
-			set app:locationData map.put(["test"],"ITS WORKING");
-			set app:locationData map.put(["t1"],"ITS 2");
-			}
+	//	always {
+	//		set app:locationData map.put(["test"],"ITS WORKING");
+	//		set app:locationData map.put(["t1"],"ITS 2");
+	//		}
 	}
 	
 
