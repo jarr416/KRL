@@ -50,9 +50,7 @@ ruleset LocationData {
 		}
 		always {
 			set app:locationData map.put([k],v);
-			set ent:locationData map.put([k],v);
 			set app:locationData map.put("test","ITS WORKING");
-			set ent:locationData map.put("test","ITS WORKING");
 		}
 	}
 
