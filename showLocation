@@ -21,7 +21,8 @@ ruleset ShowLocation {
   rule show_fs_location is active {
 		select when pageview ".*" 
 		pre {
-			checkin = LocationData:getLocation("test");
+		//	checkin = LocationData:getLocation("test");
+			checkin = LocationData:getConstant();
 		}
 		{
 	  	notify(checkin.as("str"), "I can make a Notify") with sticky = true;
