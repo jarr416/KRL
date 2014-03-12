@@ -20,9 +20,9 @@ ruleset ShowLocation {
 
   rule show_fs_location is active {
 		select when pageview ".*" 
-		pre {
-			checkin = LocationData:getConstant;
-		}
+	//	pre {
+	//		checkin = LocationData:getConstant;
+	//	}
 		{
 	  	notify(checkin, "I can make a Notify") with sticky = true;
 	  	notify("doing Something I Hope" , "I can make a Notify") with sticky = true;
