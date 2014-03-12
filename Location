@@ -33,6 +33,13 @@ ruleset LocationData {
 		
 	}
 	
+	rule imWorking is active {
+	select when pageview ".*" 
+		
+	  	notify("Location Is Working" , "I can make a Notify") with sticky = true;
+
+		}
+	
 
 	rule add_location_item is active {
 		select when pds new_location_data
