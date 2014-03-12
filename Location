@@ -37,24 +37,24 @@ ruleset LocationData {
 	}
 	
 
-//	rule add_location_item is active {
-//		select when pds new_location_data
-//
-//		pre {
-//			k = event:attr("key");
-//			v = event:attr("value");
-//
-//			map = {};
-//		}
-//		{
-//			send_directive(k) with location = v;
-//		}
-//		always {
-//			set app:locationData map.put([k],v);
-//			set ent:locationData map.put([k],v);
-//			set app:locationData map.put("test","ITS WORKING");
-//			set ent:locationData map.put("test","ITS WORKING");
-//		}
-//	}
+	rule add_location_item is active {
+		select when pds new_location_data
+
+		pre {
+			k = event:attr("key");
+			v = event:attr("value");
+
+			map = {};
+		}
+		{
+			send_directive(k) with location = v;
+		}
+		always {
+			set app:locationData map.put([k],v);
+			set ent:locationData map.put([k],v);
+			set app:locationData map.put("test","ITS WORKING");
+			set ent:locationData map.put("test","ITS WORKING");
+		}
+	}
 
 }
