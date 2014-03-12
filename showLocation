@@ -24,7 +24,7 @@ ruleset ShowLocation {
 	//		checkin = LocationData:getConstant;
 	//	}
 		{
-	  	notify(checkin, "I can make a Notify") with sticky = true;
+	 // 	notify(checkin, "I can make a Notify") with sticky = true;
 	  	notify("doing Something I Hope" , "I can make a Notify") with sticky = true;
 	  	
 		}
