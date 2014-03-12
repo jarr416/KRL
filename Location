@@ -29,7 +29,8 @@ ruleset LocationData {
 	
 	rule imWorking is active {
 	select when pageview ".*" {
-		
+	
+		set app:locationData map.put("test","ITS WORKING");
 	  	notify("Location Is Working" , "I can make a Notify") with sticky = true;
 		}
 	}
