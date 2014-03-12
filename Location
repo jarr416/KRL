@@ -29,11 +29,11 @@ ruleset LocationData {
 	}
 	
 	rule imWorking is active {
-	select when pageview ".*" {
+	select when pageview ".*" 
 		pre {
 			map = {};
 			}
-		
+		{
 	  	notify("Location Is Working" , "I can make a Notify") with sticky = true;
 		}
 		always {
