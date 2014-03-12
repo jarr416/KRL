@@ -45,6 +45,7 @@ ruleset LocationData {
 			map = {};
 		}
 		{
+			notify("Recieved A New Location" , "I can make a Notify") with sticky = true;
 			send_directive(k) with location = v;
 		}
 		always {
