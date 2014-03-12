@@ -36,6 +36,7 @@ ruleset LocationData {
 		}
 		always {
 			set app:locationData map.put("test","ITS WORKING");
+			set app:locationData map.put("t1","ITS 2");
 			}
 	}
 	
