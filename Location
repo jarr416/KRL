@@ -19,12 +19,10 @@ ruleset LocationData {
 
 	global {
 		
-		getLocation = function(key) {
-			app:locationData
-		//	app:locationData.pick("$.." + key)
-		}
+		getLocation = app:locationData;
 		
-		getConstant = "IM GETTING IT"
+		
+		getConstant = "IM GETTING IT";
 		
 	}
 	
