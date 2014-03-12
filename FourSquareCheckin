@@ -35,9 +35,11 @@ ruleset FourSquareCheckin {
  	set ent:shout shout;
         set ent:createdAt createdAt;
 	set ent:data event:attr("checkin").as("str");
+	
+	
 	raise pds event new_location_data
 	with key = "fs_checkin"
-		and value = {"venue": ent:venue, "shout" : ent:should, "city" : ent:city , "date'" : ent:data}
+		and value = {"venue": venue, "shout" : shout, "city" : city , "date" : date}
     }
   }
   
