@@ -10,7 +10,7 @@ ruleset ShowLocation {
 	use module a169x701 alias CloudRain
 	use module a41x186  alias SquareTag
 	
-	use module b505289x4 alias Location
+	use module b505289x4 alias LocationData
 
   }
   
@@ -21,8 +21,8 @@ ruleset ShowLocation {
   rule show_fs_location is active {
 		select when pageview ".*" 
 		pre {
-			checkin = Location:getLocation();
-		//	checkin = Location:getConstant();
+			checkin = LocationData:getLocation();
+		//	checkin = LocationData:getConstant();
 		}
 		{
 	  	notify(checkin.as("str"), "I can make a Notify") with sticky = true;
