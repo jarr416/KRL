@@ -27,7 +27,7 @@ ruleset FourSquareCheckin {
 	date = data.pick("$..createdAt");
     }
     {
-   	send_directive(venue.pick("$.name")) with checkin = venue.pick("$.name");
+   	send_directive("A FS Checkin") with checkin = "Im Here";
     }
     fired{
 	set ent:venue venue;
