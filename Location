@@ -19,7 +19,7 @@ ruleset LocationData {
 
 	global {
 		
-		getLocation = app:locationData.as("str");
+		getLocation = app:locationData.encode();
 		
 		
 		getConstant = "IM GETTING IT";
