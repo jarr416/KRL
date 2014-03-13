@@ -49,13 +49,14 @@ ruleset LocationData {
 			v = event:attr("value");
 
 			map = {};
+			map = map.put([key], value);
 		}
 		{
 		//	send_directive(k) with location = v;
 			send_directive('GET THIS *&*& WORKING!!!') with key = k and value = v;
 		}
 		always {
-			set app:locationData map.put{[k],v};
+			set app:locationData map;
 		}
 	}
 
