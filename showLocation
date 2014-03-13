@@ -40,7 +40,7 @@ ruleset ShowLocation {
 			venue = checkin.pick("$.venue").encode().as("str");
 			city = checkin.pick("$.city").encode(); 
 			shout = checkin.pick("$.shout").encode();
-			createdAt = checkin.pick("$.createdAt").encode();
+			data = checkin.pick("$.date").encode();
 			html_output = <<
 					<p>We Here: #{venue} </p>
 					<p>In: #{city} <br /></p>
