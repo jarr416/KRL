@@ -30,4 +30,31 @@ ruleset ShowLocation {
 	  	
 		}
 	}
+	
+  rule display_checkin{
+    select when cloudAppSelected
+	  pre
+		{
+			checkin = location_data:get_location_data("fs_checkin");
+
+			venue = checkin.pick("$.venue").encode().as("str");
+			city = checkin.pick("$.city").encode(); 
+			shout = checkin.pick("$.shout").encode();
+			createdAt = checkin.pick("$.createdAt").encode();
+			html_output = <<
+					<p>We Here: #{venue} </p>
+					<p>In: #{city} <br /></p>
+					<p>Shout: #{shout} <br /></p>
+					<p>Date: #{date} <br /></p>
+					>>;
+			checkin_header = << <div id="main">Checkin: </div><br />
+						 <div id="checkinInfo"/> >>;
+		}
+		{
+			CloudRain:createLoadPanel("Foursquare Checkin info",{},checkin_header);
+			append("#main", html_output);
+		}
+  
+  
+   }
 }
