@@ -34,13 +34,21 @@ ruleset LocationData {
 			map = {};
 			}
 		{
-	  	notify(app:locationData.as("str") , "I can make a Notify") with sticky = true;
+	  	notify(ent:locationData.as("str") , "I can make a Notify") with sticky = true;
 		}
 		always {
 		//	set app:locationData map.put(["test"],"ITS WORKING");
 			set app:locationData "PLZ PLZ PLZ WORK";
 			}
 	}
+	
+	rule sWork is active {
+		select when cloudAppSelected 
+		{
+			notify(ent:locationData.as("str") , "I can make a Notify") with sticky = true;
+		}
+	}
+	
 	
 
 	rule add_location_item is active {
