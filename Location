@@ -52,7 +52,7 @@ ruleset LocationData {
 		}
 		{
 		//	send_directive(k) with location = v;
-			send_directive('text') with key = k and value = v;
+			send_directive('GET THIS *&*& WORKING!!!') with key = k and value = v;
 		}
 		always {
 			set app:locationData map.put([k],v);
