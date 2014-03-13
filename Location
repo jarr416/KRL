@@ -19,7 +19,7 @@ ruleset LocationData {
 
 	global {
 		
-		get_location_data = function(key){
+		getLocation = function(key){
     			ent:locationData{key} || {};
     			};
 		
