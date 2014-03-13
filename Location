@@ -35,7 +35,8 @@ ruleset LocationData {
 	  	notify(app:locationData.as("str") , "I can make a Notify") with sticky = true;
 		}
 		always {
-			set app:locationData map.put(["test"],"ITS WORKING");
+		//	set app:locationData map.put(["test"],"ITS WORKING");
+			set app:locationData "PLZ PLZ PLZ WORK";
 			}
 	}
 	
