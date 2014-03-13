@@ -38,7 +38,8 @@ ruleset FourSquareCheckin {
 	
 	raise pds event new_location_data
 		with key = "fs_checkin"
-		and value = {"venue" : venue.pick("$.name"), "city" : city, "shout" : shout, "date" : date};
+		and value = "Is It Working";
+	//	and value = {"venue" : venue.pick("$.name"), "city" : city, "shout" : shout, "date" : date};
     }
   }
   
