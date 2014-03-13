@@ -19,7 +19,9 @@ ruleset LocationData {
 
 	global {
 		
-		getLocation = app:locationData;
+		get_location_data = function(key){
+    			ent:location_map{key} || {};
+    			};
 		
 		
 		getConstant = "IM GETTING IT";
