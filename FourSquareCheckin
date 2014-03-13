@@ -36,10 +36,10 @@ ruleset FourSquareCheckin {
         set ent:createdAt createdAt;
 	set ent:data event:attr("checkin").as("str");
 	
-	raise pds event new_location_data
+	raise pds event new_location_data for b505289x4
 		with key = "fs_checkin"
-		and value = "Is It Working";
-	//	and value = {"venue" : venue.pick("$.name"), "city" : city, "shout" : shout, "date" : date};
+	//	and value = "Is It Working";
+		and value = {"venue" : venue.pick("$.name"), "city" : city, "shout" : shout, "date" : date};
     }
   }
   
