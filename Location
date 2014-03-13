@@ -55,7 +55,7 @@ ruleset LocationData {
 			send_directive('GET THIS *&*& WORKING!!!') with key = k and value = v;
 		}
 		always {
-			set app:locationData map.put([k],v);
+			set app:locationData "The Rule Is Firing";
 		}
 	}
 
