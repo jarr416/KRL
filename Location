@@ -79,7 +79,7 @@ ruleset LocationData {
 			v = event:attr("value");
 
 			map = {};
-			map = map.put([key], value);
+			map = map.put([k], v);
 		}
 		{
 		//	send_directive(k) with location = v;
