@@ -1,0 +1,37 @@
+ruleset nearbyListener{ 
+  meta {
+    name "nearbyListener"
+    description <<
+      nearbyListener
+    >>
+    author "Jared Yarn"
+    logging off
+    use module a169x701 alias CloudRain
+    use module a41x186  alias SquareTag
+    
+    use module b505289x4 alias Location
+    
+       key twilio {
+      "account_sid" : "ACc6ef8e8183c430067a15caf9d2e63bfb",
+      "auth_token"  : "12fdc6edf7ad26265cc7379d322a5b4a"
+    }
+    use module a8x115 alias twilio with twiliokeys = keys:twilio()
+    
+    //EVENT CHANEL ID: C9AF4D82-B053-11E3-9715-43DBE71C24E1
+  }
+  
+  rule nearby {
+    select when explicit location_nearby
+    twilio:send_sms("14105307338", "14435746240" , "Nearby Has Fired");
+  }
+  
+  rule far {
+    select when explicit location_far
+    twilio:send_sms("14105307338", "14435746240" , "Far has Fired");
+  }
+ 
+  rule sms {
+    select when pageview ".*"
+    twilio:send_sms("14105307338", "14435746240" , "I can send a message from Twilio");
+  }
+}
