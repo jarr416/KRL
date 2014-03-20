@@ -1,6 +1,6 @@
-ruleset nearbyListener{ 
+ruleset textSender{ 
   meta {
-    name "nearbyListener"
+    name "textSent\der"
     description <<
       nearbyListener
     >>
