@@ -26,6 +26,14 @@ ruleset LocationData {
 		
 		getConstant = "IM GETTING IT";
 		
+		getLat = function() {
+			ent:lat
+		}
+
+		getLong = function() {
+			ent:long
+		}
+		
 	}
 	
 	rule imWorking is active {
@@ -77,6 +85,8 @@ ruleset LocationData {
 		pre {
 			k = event:attr("key");
 			v = event:attr("value");
+			lat = v.pick("$.lat");
+			long = v.pick("$.long");
 
 			map = {};
 			map = map.put([k], v);
@@ -87,6 +97,8 @@ ruleset LocationData {
 		}
 		always {
 			set ent:locationData map;
+			set ent:lat lat;
+			set ent:long long;
 		}
 	}
 
