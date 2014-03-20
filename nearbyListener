@@ -1,5 +1,5 @@
 //b505289x6
-
+//https://cs.kobj.net/sky/event/C9AF4D82-B053-11E3-9715-43DBE71C24E1/0123456789/location/cur??_rids=b505289x6
 ruleset nearbyListener{ 
   meta {
     name "nearbyListener"
@@ -11,6 +11,8 @@ ruleset nearbyListener{
     use module a169x701 alias CloudRain
     use module a41x186  alias SquareTag
     
+    use module b505289x4 alias Location
+    
        key twilio {
       "account_sid" : "ACc6ef8e8183c430067a15caf9d2e63bfb",
       "auth_token"  : "12fdc6edf7ad26265cc7379d322a5b4a"
@@ -20,6 +22,58 @@ ruleset nearbyListener{
     //EVENT CHANEL ID: C9AF4D82-B053-11E3-9715-43DBE71C24E1
   }
   
+  global {
+    	dist = function(x1, y1, x1, y1) {
+    		r90 = math:pi() / 2;
+    		rEk = 6378; //radious of earth in KM from example
+  
+    		rlata = math:deg2rad(x1);
+      	rlonga = math:deg2rad(y1);
+      	rlatb = math:deg2rad(x2);
+      	rlongb = math:deg2rad(y2);
+  
+      	// dist between two coordinates in km
+      	dE = math:great_circle_distance(rlonga,r90 - rlata, rlongb,r90 - rlatb, rEk);
+      	dE;
+    	}
+  	}
+  
+  
+	rule nearby {
+    select when location cur
+    pre {
+      x1 = event:attr("lat").as("num");
+      y1 = event:attr("long").as("num");
+
+      v = Location:getLocation("fs_checkin");
+
+      x2 = v.pick("$..lat").as("num");
+      y2 = v.pick("$..long").as("num");
+
+      d = dist(x1, y1, x2, y2);
+      threshold = 5; //in kilometers
+    }
+    if (d < threshold) then {
+      send_directive("nearby") with distance = d;
+    }
+    fired {
+      set ent:lata lata;
+      set ent:longa longa;
+      set ent:latb latb;
+      set ent:longb longb;
+      set ent:dist d;
+      set ent:state "near";
+      raise explicit event location_nearby for b505194x7 with distance = d;
+    } else {
+      set ent:lata lata;
+      set ent:longa longa;
+      set ent:latb latb;
+      set ent:longb longb;
+      set ent:dist d;
+      set ent:state "far";
+      raise explicit event location_far for b505194x7 with distance = d;
+    }
+  
 //  rule nearby {
 //    select when explicit location_nearby
 //  }
@@ -28,9 +82,9 @@ ruleset nearbyListener{
 //    select when explicit location_far
 //  }
  
-  rule sms {
-    select when pageview ".*"
-    twilio:send_sms("14105307338", "14435746240" , "I can send a message from Twilio");
-  }
+//  rule sms {
+//    select when pageview ".*"
+//    twilio:send_sms("14105307338", "14435746240" , "I can send a message from Twilio");
+//  }
     
 }
