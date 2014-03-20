@@ -53,41 +53,17 @@ ruleset nearbyListener{
 	      d = dist(x1, y1, x2, y2);
 	      threshold = 5; //in kilometers
 	    }
-	     notify("Hello World", "I can make a Notify") with sticky = true;
-	    send_directive("Location Cur Fired");
-	    if (d < threshold) then {
-	      send_directive("nearby") with distance = d;
-	    }
-	    fired {
-	      set ent:lata lata;
-	      set ent:longa longa;
-	      set ent:latb latb;
-	      set ent:longb longb;
-	      set ent:dist d;
-	      set ent:state "near";
-	      raise explicit event location_nearby for b505194x7 with distance = d;
-	    } else {
-	      set ent:lata lata;
-	      set ent:longa longa;
-	      set ent:latb latb;
-	      set ent:longb longb;
-	      set ent:dist d;
-	      set ent:state "far";
-	      raise explicit event location_far for b505194x7 with distance = d;
-	    }
-	    }
+	    notify("Hello World", "I can make a Notify") with sticky = true;
+	 //   send_directive("Location Cur Fired");
+	  //  if (d < threshold) then {
+	 //     send_directive("nearby") with distance = d;
+	 //   }
+	 //   fired {
+	//      raise explicit event location_nearby for b505289x7 with distance = d;
+	//    } else {
+	//      raise explicit event location_far for b505289x7 with distance = d;
+	//    }
+	}
   
-//  rule nearby {
-//    select when explicit location_nearby
-//  }
-  
-//  rule far {
-//    select when explicit location_far
-//  }
- 
-//  rule sms {
-//    select when pageview ".*"
-//    twilio:send_sms("14105307338", "14435746240" , "I can send a message from Twilio");
-//  }
     
 }
