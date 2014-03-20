@@ -1,4 +1,4 @@
-//b505690x8
+//b505289x6
 
 ruleset nearbyListener{ 
   meta {
@@ -12,8 +12,8 @@ ruleset nearbyListener{
     use module a41x186  alias SquareTag
     
        key twilio {
-      "account_sid" : "AC3d897a777377f0b0ad95aaf4d02f0618",
-      "auth_token"  : "7a27308a518d183eb0b49b1979697eeb"
+      "account_sid" : "ACc6ef8e8183c430067a15caf9d2e63bfb",
+      "auth_token"  : "12fdc6edf7ad26265cc7379d322a5b4a"
     }
     use module a8x115 alias twilio with twiliokeys = keys:twilio()
     
