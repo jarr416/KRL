@@ -25,6 +25,8 @@ ruleset FourSquareCheckin {
 	city = data.pick("$..city");
 	shout = data.pick("$..shout");
 	date = data.pick("$..createdAt");
+	lat = location.pick("$..lat");
+	long = location.pick("$..lng");
     }
     {
    	send_directive("A FS Checkin") with checkin = "Im Here";
@@ -35,11 +37,13 @@ ruleset FourSquareCheckin {
  	set ent:shout shout;
         set ent:createdAt createdAt;
 	set ent:data event:attr("checkin").as("str");
+	set ent:lat lat;
+        set ent:lng long;
 	
 	raise pds event new_location_data for b505289x4
 		with key = "fs_checkin"
 	//	and value = "Is It Working";
-		and value = {"venue" : venue.pick("$.name"), "city" : city, "shout" : shout, "date" : createdAt};
+		and value = {"venue" : venue.pick("$.name"), "city" : city, "shout" : shout, "date" : createdAt, "lat" : lat , "long" : long};
     }
   }
   
