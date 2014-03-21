@@ -12,6 +12,7 @@ ruleset nearbyListener{
     use module a41x186  alias SquareTag
     
     use module b505289x4 alias Location
+    use module b505289x7 alias TextSender
     
        key twilio {
       "account_sid" : "ACc6ef8e8183c430067a15caf9d2e63bfb",
