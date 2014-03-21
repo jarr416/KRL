@@ -54,7 +54,7 @@ ruleset nearbyListener{
 //	      d = dist(x1, y1, x2, y2);
 //	      threshold = 5; //in kilometers
 //	    }
-//	    notify("Hello World", "I can make a Notify") with sticky = true;
+	    notify("Hello World", "I can make a Notify") with sticky = true;
 		raise explicit event location_nearby for b505289x7 with distance = 1000;
 	    }
 	 //   send_directive("Location Cur Fired");
