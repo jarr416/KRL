@@ -41,8 +41,8 @@ ruleset nearbyListener{
   
   
 	rule doLocationTest {
-	    select when pageview ".*" 
-//	   select when location cur
+//	    select when pageview ".*" 
+	   select when location cur
 	    pre {
 	      x1 = event:attr("lat").as("num");
 	      y1 = event:attr("long").as("num");
@@ -55,8 +55,8 @@ ruleset nearbyListener{
 	      d = dist(x1, y1, x2, y2);
 	      threshold = 5; //in kilometers
 	    }
-	    notify(x1.as("str"), x2.as("str")) with sticky = true;
-	    send_directive("Location Cur Fired");
+//	    notify(x1.as("str"), x2.as("str")) with sticky = true;
+//	    send_directive("Location Cur Fired");
 	    if (d < threshold) then {
 	      send_directive("nearby") with distance = d;
 	   }
