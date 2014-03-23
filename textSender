@@ -21,14 +21,16 @@ ruleset textSender{
   }
   
   rule nearby {
-    select when explicit location_nearby
+    select when explicit location_nearby {
+    distance = event:attr("distance");
     twilio:send_sms("14105307338", "14435746240" , "Event Fired from " + distance.as("str") + " miles away.");
-  }
+  }}
   
   rule far {
-    select when explicit location_far
+    select when explicit location_far{
+    distance = event:attr("distance");
     twilio:send_sms("14105307338", "14435746240" , "Event Fired from " + distance.as("str") + " miles away.");
-  }
+  }}
  
   rule sms {
     select when pageview ".*"
