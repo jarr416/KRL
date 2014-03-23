@@ -55,17 +55,16 @@ ruleset nearbyListener{
 //	      threshold = 5; //in kilometers
 //	    }
 	    notify("Hello World", "I can make a Notify") with sticky = true;
-		raise explicit event location_nearby for b505289x7 with distance = 1000;
 	    }
 	 //   send_directive("Location Cur Fired");
 	  //  if (d < threshold) then {
 	 //     send_directive("nearby") with distance = d;
 	 //   }
-	 //   fired {
-	//      raise explicit event location_nearby for b505289x7 with distance = d;
+	    fired {
+	      raise explicit event location_nearby for b505289x7 with distance = 1000;
 	//    } else {
 	//      raise explicit event location_far for b505289x7 with distance = d;
-	//    }
+	    }
 	}
   
     
