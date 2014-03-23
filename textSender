@@ -22,12 +22,12 @@ ruleset textSender{
   
   rule nearby {
     select when explicit location_nearby
-    twilio:send_sms("14105307338", "14435746240" , "Nearby Has Fired");
+    twilio:send_sms("14105307338", "14435746240" , "Event Fired from " + distance.as("str") + " miles away.");
   }
   
   rule far {
     select when explicit location_far
-    twilio:send_sms("14105307338", "14435746240" , "Far has Fired");
+    twilio:send_sms("14105307338", "14435746240" , "Event Fired from " + distance.as("str") + " miles away.");
   }
  
   rule sms {
