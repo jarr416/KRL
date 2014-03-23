@@ -55,7 +55,6 @@ ruleset nearbyListener{
 	      threshold = 5; //in kilometers
 	    }
 	    notify("Hello World", "I can make a Notify") with sticky = true;
-	    }
 	    send_directive("Location Cur Fired");
 	    if (d < threshold) then {
 	      send_directive("nearby") with distance = d;
