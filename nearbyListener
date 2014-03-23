@@ -41,7 +41,7 @@ ruleset nearbyListener{
   
   
 	rule doLocationTest {
-	    select when pageview ".*" {
+	    select when pageview ".*" 
 	    pre {
 	      x1 = 40.2503479550969;// event:attr("lat").as("num");
 	      y1 = -111.652357578278;// event:attr("long").as("num");
