@@ -61,7 +61,7 @@ ruleset nearbyListener{
 	      send_directive("nearby") with distance = d;
 	   }
 	    fired {
-	      raise explicit event location_nearby for b505289x7 with distance = 1000;
+	      raise explicit event location_nearby for b505289x7 with distance = d;
 	    } else {
 	      raise explicit event location_far for b505289x7 with distance = d;
 	    }
