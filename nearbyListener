@@ -49,8 +49,8 @@ ruleset nearbyListener{
 	
 	      v = Location:getLocation("fs_checkin");
 	
-	      x2 = v.pick("$..lat").as("num");
-	      y2 = v.pick("$..long").as("num");
+	      x2 = v.pick("$.lat").as("num");
+	      y2 = v.pick("$.long").as("num");
 	
 	      d = dist(x1, y1, x2, y2);
 	      threshold = 5; //in kilometers
