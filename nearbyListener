@@ -1,5 +1,6 @@
 //b505289x6
-//https://cs.kobj.net/sky/event/C9AF4D82-B053-11E3-9715-43DBE71C24E1/0123456789/location/cur?_rids=b505289x6&lat=453&long=-111
+//https://cs.kobj.net/sky/event/C9AF4D82-B053-11E3-9715-43DBE71C24E1/0123456789/location/cur?_rids=b505289x6&lat=40&long=-111
+//https://cs.kobj.net/sky/event/C9AF4D82-B053-11E3-9715-43DBE71C24E1/0123456789/location/cur?_rids=b505289x6&lat=4000&long=-111
 ruleset nearbyListener{ 
   meta {
     name "nearbyListener"
@@ -56,11 +57,11 @@ ruleset nearbyListener{
 	      r90   = math:pi()/2;
 		rEk = 6378;
 	      d = math:great_circle_distance(y1,r90 - x1, y2,r90 - x2, rEk);
-	      threshold = 5; //in kilometers
+	      threshold = 5000; //in kilometers
 	    }
 //	    notify(x1.as("str"), x2.as("str")) with sticky = true;
 //	    send_directive("Location Cur Fired");
-	    if (d > threshold) then {
+	    if (d < threshold) then {
 	      send_directive("nearby") with lat = x1 and long = y1 and distance = d;
 	   }
 	    fired {
