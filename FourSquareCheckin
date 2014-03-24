@@ -25,6 +25,7 @@ ruleset FourSquareCheckin {
 	city = data.pick("$..city");
 	shout = data.pick("$..shout");
 	date = data.pick("$..createdAt");
+	location = venue.pick("$..location");
 	lat = location.pick("$..lat");
 	long = location.pick("$..lng");
     }
