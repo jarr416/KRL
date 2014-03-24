@@ -25,7 +25,7 @@ ruleset textSender{
     pre {
     distance = event:attr("distance");
     }
-    twilio:send_sms("14105307338", "14435746240" , "Event Fired from " + distance.as("str") + " miles away.");
+    twilio:send_sms("14105307338", "14435746240" , "Near Event Fired from " + distance.as("str") + " miles away.");
   }
   
   rule far {
@@ -33,7 +33,7 @@ ruleset textSender{
     pre {
     distance = event:attr("distance");
     }
-    twilio:send_sms("14105307338", "14435746240" , "Event Fired from " + distance.as("str") + " miles away.");
+    twilio:send_sms("14105307338", "14435746240" , "Far Event Fired from " + distance.as("str") + " miles away.");
   }
  
   rule sms {
