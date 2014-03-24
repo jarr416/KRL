@@ -55,7 +55,7 @@ ruleset nearbyListener{
 	     // d = dist(x1, y1, x2, y2);
 	      r90   = math:pi()/2;
 		rEk = 6378;
-	      d = math:great_circle_distance(rlnga,r90 - rlata, rlngb,r90 - rlatb, rEk);
+	      d = math:great_circle_distance(y1,r90 - x1, y2,r90 - x2, rEk);
 	      threshold = 5; //in kilometers
 	    }
 //	    notify(x1.as("str"), x2.as("str")) with sticky = true;
