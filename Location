@@ -52,11 +52,15 @@ ruleset LocationData {
 			city = checkin.pick("$.city").encode(); 
 			shout = checkin.pick("$.shout").encode();
 			date = checkin.pick("$.date").encode();
+			lat = checkin.pick("$.lat").encode();
+			long = checkin.pick("$.long").encode();
 			html_output = <<
 					<p>We Here: #{venue} </p>
 					<p>In: #{city} <br /></p>
 					<p>Shout: #{shout} <br /></p>
 					<p>Date: #{date} <br /></p>
+					<p>Lat: #{lat} <br /></p>
+					<p>Long: #{long} <br /></p>
 					>>;
 			checkin_header = << <div id="main">Checkin: </div><br />
 						 <div id="checkinInfo"/> >>;
