@@ -57,8 +57,8 @@ ruleset nearbyListener{
 	    }
 //	    notify(x1.as("str"), x2.as("str")) with sticky = true;
 //	    send_directive("Location Cur Fired");
-	    if (d < threshold) then {
-	      send_directive("nearby") with distance = d;
+	    if (d > threshold) then {
+	      send_directive("nearby") with lat = x1 and long = y1 and distance = d;
 	   }
 	    fired {
 	      raise explicit event location_nearby for b505289x7 with distance = d;
