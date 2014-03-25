@@ -1,53 +1,41 @@
-ruleset Receiver {
+ruleset CatchLocatino {
 	meta {
 		name "Location Data"
 		description <<
-			Collect... the dataz
+			Hello world
 			>>
-		author "Ryan Bird"
+		author "Jared Yarn"
 		logging on
 		use module a169x701 alias CloudRain
 		use module a41x196 alias SquareTag
 	}
 
-	dispatch {
-	}
-
-	global {
-	}
-
-	rule visual is active {
+	rule showLocation is active {
 		select when web cloudAppSelected
 		pre {
 			dataString = ent:location.encode();
-			dataType = ent:location.typeof();
-			my_html = <<
-				<div id="main">Data Type: #{dataType}<br>
-					Received data: #{dataString}}</div>
+			mainHTML = <<
+				<div id="main">Location Recieved: #{dataString}}</div>
 			>>;
 		}
 		{
 			SquareTag:inject_styling();
-			CloudRain:createLoadPanel("Foursquare: Location", {}, my_html);
-
-			notify("I am running", "from display mode");
-			replace_html('#main', my_html);
+			CloudRain:createLoadPanel("Location recieved", {}, mainHTML);
+			replace_html('#main', mainHTML);
 		}
 	}
 
 	rule nearby is active {
 		select when location notification
 		pre {
-			loc = event:attr("location").decode();
-			eventAttrs = event:attrs();
+			locIN = event:attr("location").decode();
 		}
 
 		{
-			send_directive("Pico received data") with location = loc;
+			send_directive("Pico received data") with location = locIn;
 		}
 		fired {
-			set ent:location loc;
-			set ent:eventAttrs eventAttrs;
+			set ent:location locIn;
 		}
 	}
 }
