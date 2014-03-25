@@ -93,7 +93,7 @@ rule display_checkin{
   
   rule sendLocation is active {
 	select when foursquare checkin
-	foreach sMap setting (channelName,cid)
+	foreach sMap setting (name,cid)
 	pre {
 		loc = ent:venue.pick("$.location");
 		sM = {"cid": cid, "location": loc};
