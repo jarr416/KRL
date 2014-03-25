@@ -18,10 +18,8 @@ ruleset CatchLocatino {
 		select when web cloudAppSelected
 		pre {
 			decodedLocation = ent:location.as("str");
-			dataType = ent:location.typeof();
 			mainHTML = <<
-				<div id="main">Data Type: #{dataType}<br>
-				Location Recieved: #{decodedLocation}</div>
+				<div id="main">	Location Recieved: #{decodedLocation}</div>
 			>>;
 		}
 		{
