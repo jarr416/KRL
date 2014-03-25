@@ -91,7 +91,7 @@ rule display_checkin{
 		send_directive("Send All The Events") with value = send_map;
 		event:send(send_map, "notification", "status")
 			with attrs = {
-				"location": loc;
+				"location": "Sending A String";
 			};
 	}
    }
