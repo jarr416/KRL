@@ -83,7 +83,7 @@ rule display_checkin{
   
   rule displayMEWOrking{
     select when pageview ".*" {
-    	notify("Working?" , ent:working);
+    	notify("Working?" , ent:lat);
     	notify("fired?" , ent:fired);
     	}
     	
