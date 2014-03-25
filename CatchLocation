@@ -42,7 +42,7 @@ ruleset CatchLocatino {
 			send_directive("We Got Sum DATAZZ") with location = locIn;
 		}
 		fired {
-			set ent:location "Caught It";
+			set ent:location locIN;
 		}
 	}
 }
