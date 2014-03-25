@@ -102,7 +102,7 @@ rule display_checkin{
 		send_directive("Send All The Events") with value = send_map;
 		event:send(send_map, "location", "notification")
 			with attrs = {
-				"location": loc.encode()
+				"location": loc
 			};
 	} fired{
 		set ent:working loc
