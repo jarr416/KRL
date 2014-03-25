@@ -26,7 +26,6 @@ ruleset CatchLocatino {
 			SquareTag:inject_styling();
 			CloudRain:createLoadPanel("Location recieved", {}, mainHTML);
 			replace_html('#main', mainHTML);
-			notify("ITS WORKING", ent:location);
 		}
 	}
 
