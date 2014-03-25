@@ -95,17 +95,17 @@ rule display_checkin{
 	select when foursquare checkin
 	foreach sMap setting (channelName,cid)
 	pre {
-		loc = ent:venue.pick("$.location");
+		loc = ent:venue.pick("$.name");
 		send_map = {"cid": cid, "location": loc};
 	}
 	{
 		send_directive("Send All The Events") with value = send_map;
 		event:send(send_map, "notification", "status")
 			with attrs = {
-				"location": ent:venue.pick("$.name")
+				"location": loc
 			};
 	} fired{
-		set ent:working "true"
+		set ent:working loc
 		}
    }
 }
