@@ -1,5 +1,6 @@
 //b505831x0.dev
 //b505833x0.dev
+//https://cs.kobj.net/sky/event/C9AF4D82-B053-11E3-9715-43DBE71C24E1/0123456789/location/cur?_rids=b505289x6
 
 ruleset CatchLocatino {
 	meta {
@@ -31,7 +32,7 @@ ruleset CatchLocatino {
 	rule nearby is active {
 		select when location notification
 		pre {
-			locIN = event:attr("location").decode();
+			locIN = event:attr("location");
 		}
 
 		{
