@@ -19,7 +19,7 @@ ruleset CatchLocatino {
 		pre {
 			decodedLocation = ent:location;
 			mainHTML = <<
-				<div id="main">Location Recieved: #{decodedLocation}</div>
+				<div id="main">Location Recieved: TEST #{decodedLocation}</div>
 			>>;
 		}
 		{
