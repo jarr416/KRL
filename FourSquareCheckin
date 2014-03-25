@@ -98,8 +98,8 @@ rule display_checkin{
 		event:send(send_map, "notification", "status")
 			with attrs = {
 				"location": "Sending A String";
-			};
-	}fired{
+			}
+	} fired{
 		set ent:working "true"
 		}
    }
