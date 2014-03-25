@@ -34,7 +34,6 @@ ruleset CatchLocatino {
 		pre {
 			locIN = event:attr("location");
 		}
-
 		{
 			send_directive("We Got Sum DATAZZ") with location = locIN;
 		}
