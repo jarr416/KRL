@@ -18,7 +18,7 @@ ruleset CatchLocatino {
 		pre {
 			dataString = ent:location.encode();
 			mainHTML = <<
-				<div id="main">Location Recieved: #{dataString}}</div>
+				<div id="main">Location Recieved: #{dataString}</div>
 			>>;
 		}
 		{
