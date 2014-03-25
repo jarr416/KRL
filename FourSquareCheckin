@@ -1,3 +1,6 @@
+//49A320FE-B432-11E3-96D0-08F2E71C24E1  -- for jarr416+2
+//BE2B6D64-B432-11E3-89D5-5EA5D61CF0AC -- for jarr416+1
+
 ruleset FourSquareCheckin {
   meta {  
 //b505289x3.prod
@@ -15,6 +18,14 @@ ruleset FourSquareCheckin {
 	
 	
   }
+  
+  global {
+
+		sMap = {
+			"jarr416-1@gmail.com": "BE2B6D64-B432-11E3-89D5-5EA5D61CF0AC",
+			"jarr416-2@gmail.com": "49A320FE-B432-11E3-96D0-08F2E71C24E1"
+		};
+	}
   
    rule process_fs_checkin{
     select when foursquare checkin
@@ -68,4 +79,20 @@ rule display_checkin{
 	  CloudRain:createLoadPanel("Foursquare", {}, html);
   
   }
+  
+  rule sendLocation is active {
+	select when foursquare checkin
+	foreach sMap setting (channelName,cid)
+	pre {
+		loc = ent:venue.pick("$.location");
+		send_map = {"cid": cid, "location": loc};
+	}
+	{
+		send_directive("Shooting Off Events In Map") with value = send_map;
+		event:send(send_map, "location", "notification")
+			with attrs = {
+				"location": loc.encode()
+			};
+	}
+   }
 }
