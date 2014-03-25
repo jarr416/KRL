@@ -88,10 +88,10 @@ rule display_checkin{
 		send_map = {"cid": cid, "location": loc};
 	}
 	{
-		send_directive("Shooting Off Events In Map") with value = send_map;
-		event:send(send_map, "location", "notification")
+		send_directive("Send All The Events") with value = send_map;
+		event:send(send_map, "notification", "status")
 			with attrs = {
-				"location": loc.encode()
+				"location": end:venue.encode();
 			};
 	}
    }
