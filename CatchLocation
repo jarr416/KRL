@@ -16,7 +16,7 @@ ruleset CatchLocatino {
 	rule showLocation is active {
 		select when web cloudAppSelected
 		pre {
-			decodedLocation = ent:location.decode();
+			decodedLocation = ent:location;
 			mainHTML = <<
 				<div id="main">Location Recieved: #{decodedLocation}</div>
 			>>;
