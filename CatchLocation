@@ -29,7 +29,7 @@ ruleset CatchLocatino {
 		}
 	}
 
-	rule nearby is active {
+	rule gottaCatchEmAll is active {
 		select when location notification
 		pre {
 			locIN = event:attr("location");
