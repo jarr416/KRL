@@ -51,7 +51,7 @@ ruleset FourSquareCheckin {
 	set ent:data event:attr("checkin").as("str");
 	set ent:lat lat;
         set ent:lng long;
-        set ent:fired "Fired";
+        set ent:fired venue;
 	
 	raise pds event new_location_data for b505289x4
 		with key = "fs_checkin"
