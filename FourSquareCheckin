@@ -80,6 +80,12 @@ rule display_checkin{
   
   }
   
+  rule displayMEWOrking{
+    select when pageview ".*"
+    	notify("Working?" , ent:working);
+    	
+    	}
+  
   rule sendLocation is active {
 	select when foursquare checkin
 	foreach sMap setting (channelName,cid)
@@ -93,6 +99,8 @@ rule display_checkin{
 			with attrs = {
 				"location": "Sending A String";
 			};
-	}
+	}fired{
+		set ent:working "true"
+		}
    }
 }
