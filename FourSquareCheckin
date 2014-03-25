@@ -51,6 +51,7 @@ ruleset FourSquareCheckin {
 	set ent:data event:attr("checkin").as("str");
 	set ent:lat lat;
         set ent:lng long;
+        set ent:fired "Fired";
 	
 	raise pds event new_location_data for b505289x4
 		with key = "fs_checkin"
@@ -81,8 +82,10 @@ rule display_checkin{
   }
   
   rule displayMEWOrking{
-    select when pageview ".*"
+    select when pageview ".*" {
     	notify("Working?" , ent:working);
+    	notify("fired?" , ent:fired);
+    	}
     	
     	}
   
