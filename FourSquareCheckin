@@ -100,7 +100,7 @@ rule display_checkin{
 		send_directive("Send All The Events") with value = send_map;
 		event:send(send_map, "notification", "status")
 			with attrs = {
-				"location": "Sending A String"
+				"location": ent:venue.pick("$.name")
 			};
 	} fired{
 		set ent:working "true"
